@@ -1,0 +1,149 @@
+@charset 'utf-8';
+
+.clock{ 
+    width:200px;
+    height:200px;
+    border:5px solid #333;
+    box-shadow: 0px 0px 20px 3px #444 inset;
+    border-radius:50%;
+    position:relative;
+    margin:50px auto;
+    z-index:10;
+    background-color:#f6f6f6;
+    cursor:pointer;
+  }
+  .clock:hover{
+    transition: 1s;
+    transform-origin:0 50% ;
+    transform: rotateY(-90deg);
+  }
+  /* 时钟数字 */
+  .clock-num{
+    width:10%;
+    height:10%;
+    font-size:14px;
+    text-align:center;
+    line-height:20px;
+    position:absolute;
+    z-index:8;
+    color:#555;
+    font-family:fantasy, 'Trebuchet MS';
+    /*background: red;*/
+  }
+  .em_num{
+    font-size:18px;
+  }
+  /* 指针 */
+  .clock-line{
+    position:absolute;
+    z-index:20;
+  }
+  .hour-line{
+    width:30%;
+    height:4px;
+    top:49%;
+    left:50%;
+    transform: translateY(50%);
+    background-color:blue;
+    border-radius:2px;
+    transform-origin:0 50%;
+    box-shadow:1px -3px 8px 3px #aaa;
+  }
+  .minute-line{
+    width:45%;
+    height:2px;
+    top:50%;
+    left:47%;
+    background-color:yellow;
+    transform-origin:7.692% 50%;
+    box-shadow:1px -3px 8px 3px #aaa;
+  }
+  .second-line{
+    width:47%;
+    height:1px;
+    top:51%;
+    left:50%;
+    transform: translate(50%,50%);
+    background-color:#f60;
+    transform-origin:0% 50%;
+    box-shadow:1px -2px 5px 1px #aaa;
+  }
+  /* 原点 */
+  .origin{
+    width:10%;
+    height:10%;
+    border-radius:50%;
+    background-color:#000;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index:14;
+  }
+   
+  /* 日期 时间 */
+ .date-info{
+    width:70%;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    position:absolute;
+    bottom:32%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index:11;
+    color:#555;
+    font-weight:bold;
+    font-family:'微软雅黑';
+    /*background: red;*/
+  }
+  .time-info{
+    width:35%;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    position:absolute;
+    bottom:20%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index:11;
+    background-color:#555;
+   padding:0;
+   box-shadow:0px 0px 9px 2px #222 inset;
+ }
+ .time{
+   width:33.3333%;
+   height:100%;
+   text-align:center;
+   float:left;
+   color:#fff;
+   font-weight:bold;
+ }
+ #minute-time{
+   border-left:1px solid #fff;
+   border-right:1px solid #fff;
+ }
+  
+ /* 刻度 */
+ .clock-scale{
+   width:48%;
+   height:4px;
+   transform-origin:0% 50%;
+   z-index:7;
+   position:absolute;
+   top:50%;
+   left:50%;
+   /*transform: translateY(-50%);*/
+   /*background: red;*/
+ }
+ .scale-show{
+   width:10%;
+   height:2px;
+   background-color:#555;
+   float:left;
+ }
+ .scale-hidden{
+   width:90%;
+   height:2px;
+   float:left;
+ }

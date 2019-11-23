@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>新的3d布局-2019/9/16</title>
+	<link rel="shortcut Icon" href="imgs/me.ico">
+    <link rel="stylesheet" type="text/css" href="css/MT_css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/PC_css_reset.css">
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel='stylesheet' href='css/clockMain.css'>
+  
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/huaban.js"></script>
+</head>
+<body>
+<canvas style="width:100vw;height:100vh;position:absolute;top:0;left:0;display:block;"></canvas>
+<div class="wrap">
+	<div class="box">
+      <div class="plane_front">
+        <!-- <input id="openBook" type="button" value="关闭书架"> -->
+        <!-- <input id="closeBook" type="button" value="开启书架"> -->
+      </div>
+      <div class="plane_after">
+         <ul class="banner_ul">
+            <li><a href="#"><img src="./images/after_bj.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/after_bj1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="./images/after_bj.jpg" alt=""></a></li>  
+         </ul>
+        <ul class="k_ul">
+        	<li class="k_li_1">
+              <dl>
+                <dt>web前端</dt>
+              	<dd><a href="">HTML</a></dd>
+              	<dd><a href="">css</a></dd>
+                <dd><a href="">css3</a></dd>
+                <dd><a href="">html5</a></dd>
+                <dd><a href="">javascript</a></dd>
+                <dd><a href="">jQuery</a></dd>
+                <dd><a href="">vue</a></dd>
+                <dd><a href="">webpack</a></dd>
+                <dd><a href="">vueX</a></dd>
+              	<dd><a href="">ionic</a></dd>
+              </dl>
+              <b class="more_btn">
+                 <i class="wL"><-</i>
+                 <i class="wR">-></i>
+              </b>
+        	</li>
+        	<li class="k_li_2">
+              <dl>
+                <dt>web后端</dt>
+                <dd><a href="">PHP</a></dd>
+              	<dd><a href="">ThinkPHP</a></dd>
+              	<dd><a href="">nodeJs</a></dd>
+                <dd><a href="">Java</a></dd>
+              	<dd><a href="">springBoot</a></dd>
+              </dl>
+               <b class="more_btn">
+                 <i class="wL"><-</i>
+                 <i class="wR">-></i>
+              </b>
+        	</li>
+        	<li class="k_li_3">
+              <dl>
+                <dt>IT书籍</dt>
+              	<dd><a href="">C语言</a></dd>
+              	<dd><a href="">C++语言</a></dd>
+              	<dd><a href="">Python</a></dd>
+              </dl>
+               <b class="more_btn">
+                 <i class="wL"><-</i>
+                 <i class="wR">-></i>
+              </b>
+        	</li>
+        	<li class="k_li_4">
+              <dl>
+                <dt>其他</dt>
+              	<dd><a href="">小说</a></dd>
+              	<dd><a href="">名人传记</a></dd>
+              	<dd><a href="">书31</a></dd>
+              </dl>
+               <b class="more_btn">
+                 <i class="wL"><-</i>
+                 <i class="wR">-></i>
+              </b>
+        	</li>
+            <li class="k_li_5">
+            生而有涯，学而无崖
+            <div id="jsi-cherry-container" class="container"></div>
+              <!-- <dl>
+                <dt>其他</dt>
+                <dd><a href="">小说</a></dd>
+                <dd><a href="">名人传记</a></dd>
+                <dd><a href="">书31</a></dd>
+              </dl>
+               <b class="more_btn">
+                 <i class="wL"><-</i>
+                 <i class="wR">-></i>
+              </b> -->
+          </li>
+        </ul>
+      </div>
+      <div class="plane_left">
+       <div class="clock" id="clock">
+         <!-- 原点 -->
+         <div class="origin"></div>
+         <!-- 时分秒针 -->
+         <div class="clock-line hour-line" id="hour-line"></div>
+         <div class="clock-line minute-line" id="minute-line"></div>
+         <div class="clock-line second-line" id="second-line"></div>     
+         <!-- 日期 -->
+         <div class="date-info" id="date-info"></div>
+         <!-- 时间 -->
+         <div class="time-info" >
+           <div class="time" id="hour-time"></div>
+           <div class="time" id="minute-time"></div>
+           <div class="time" id="second-time"></div>
+         </div>
+       </div>
+     </div>
+      <div class="plane_right">
+         <img style="width:94%;height:93%;margin:18px auto;" src="./imgs/myLogo.jpg" alt="我的logo">
+      </div>
+      <div class="plane_top">
+        <span></span>
+      </div>
+      <div class="plane_bottom">
+         <!-- <div class="zhuoZi"> -->
+         <div class="menu_btn">
+            <dl>
+              <dt>
+               <h1>欢迎来到莫殁吴文的书房</h1>
+               <div class="btn_div">
+                 <input id="openBook" type="button" value="开启书架">
+                 <input id="closeBook" type="button" value="关闭书架">
+                 <span id="closeLock">
+                   <img src="images/onoff.png" alt="退出开关">
+                 </span>
+               </div>
+              </dt>
+              <dd>1</dd>
+              <dd>2</dd>
+              <dd>3</dd>
+              <dd>4</dd>
+            </dl>
+         </div>
+         </div>
+      </div>
+	</div>     
+</div>
+<div class="controlDiv" style="display:none;position: absolute;left:50%;top:10%;height:30px;line-height:30px;background: red;transform: translateX(-50%)">
+   <button id="btn_L360">左360</button>
+
+   <button id="btn_L">向左转</button>
+   <button id="btn_R">向右转</button>
+   <button id="btn_T">向上转</button>
+   <button id="btn_B">向下转</button>
+   <button id="btn_R360">右360</button>
+   <button id="autoBuild">启动</button>
+
+</div>
+<div class="showDdContent">
+   <header class="ddTitle fl">
+     <h1>xxxbi笔记</h1>
+     <span class="backBtn fl">X</span>
+   </header>
+   <div class="ddMain fl">
+      <nav class="ddNav fl">
+        <dl>
+            <dt>子项</dt>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+            <dd>1</dd>
+          </dl>  
+      </nav>
+      <article class="ddContent fl">
+         <iframe id="oIframe" style="width:100%;height:100%;" src="secondPage/htmlBook.html" frameborder="2"></iframe>
+      </article>
+   </div>
+
+ 
+</div>
+<!-- <audio src="./music/zgz.mp3" autoplay="autoplay"></audio> -->
+
+<audio src="./music/yycy.mp3" autoplay="autoplay"></audio>
+</body>
+</html>
+<script>
+$(".backBtn").click(function(){
+    $(".showDdContent").css('display','none');
+})
+//书名的title
+$(".k_ul li dl").children().on('mouseover',function(event){
+  event.stopPropagation();
+  $(this).attr('title',$(this).text());
+})
+//点击书名，打开书本
+$(".k_ul li dl>dd>a").click(function(){
+   $(".showDdContent").css('display','block');
+  return false;
+})
+
+//音频初始化
+let oAudio = $("<audio>")[0];
+  $("body").append(oAudio);
+
+$("#closeBook").click(function(event){
+  event.stopPropagation();
+autoClose(a);
+})
+
+function autoClose(callBack){
+ 
+    oAudio.src= "audio/rotate.wav";
+   oAudio.play();
+  $(".more_btn").css('display','none');
+
+  $(".k_ul li dl").css('transform','translate(0,0%) translateZ(0px) rotateX(-180deg)');
+
+  setTimeout(function() {
+    $(".k_ul li dl").css("display",'none');
+           callBack && callBack();
+
+         },3000);
+}
+
+function a(){
+    oAudio.src= "audio/f1.wav";
+    oAudio.play();
+  $(".k_ul li").eq(0).css({
+    transition:"3s",
+    transform:'translate3d(0,-345%,-1px) rotateX(0deg)'
+  });
+  $(".k_ul li").eq(1).css({
+    transition:"3s",
+    transform:'translate3d(0,-265%,-1px) rotateX(0deg)'
+  });
+  $(".k_ul li").eq(2).css({
+    transition:"3s",
+    transform:'translate3d(0,-185%,-1px) rotateX(0deg)'
+  });
+  $(".k_ul li").eq(3).css({
+    transition:"3s",
+    transform:'translate3d(0,-100%,-1px) rotateX(0deg)'
+  });
+
+}
+
+
+$("#openBook").click(function(event){
+  event.stopPropagation();
+  autoOpen(c);
+
+})
+
+function autoOpen(callBack){
+   oAudio.play();
+   $(".k_ul li").eq(0).css({
+    transition:"3s",
+    // transform:'translateZ(-100px)'
+     // 'transform-origin':"100% 100% 0",
+    transform:'translate3d(0,-345%,100px) rotateX(70deg)'
+  });
+  $(".k_ul li").eq(1).css({
+    transition:"3s",
+    // transform:'translateZ(-100px)'
+     // 'transform-origin':"100% 100% 0",
+    transform:'translate3d(0,-265%,100px) rotateX(70deg)'
+
+  });
+  $(".k_ul li").eq(2).css({
+    transition:"3s",
+    // transform:'translateZ(-100px)'
+     // 'transform-origin':"100% 100% 0",
+    transform:'translate3d(0,-185%,100px) rotateX(70deg)'
+  });
+  $(".k_ul li").eq(3).css({
+    transition:"3s",
+    // transform:'translateZ(-100px)'
+     // 'transform-origin':"100% 100% 0",
+    transform:'translate3d(0,-100%,100px) rotateX(70deg)'
+  });
+  // 书靠背的dl出现
+   $(".k_ul li dl").css("display",'block');
+
+    setTimeout(function() {
+           callBack && callBack();
+         },3000);
+}
+function c(){
+    oAudio.src= "audio/f.wav";
+    oAudio.play();
+          
+  $(".k_ul li dl").css({
+    transition:'3s',
+    transform:'translate3d(0,20%,25px) rotateX(-60deg)'
+  });
+  $(".more_btn").css('display','block');
+}
+
+//向右移动，更多书籍
+$('.wR').click(function(){
+  console.log($(this).siblings().find('dd'))
+  // this.
+})
+
+var n=0;
+// 向右转
+$("#btn_R").click(function(){
+  n+=45;
+  console.log(n)
+  $(".box").css('transform','rotateY('+n+'deg');
+  console.log(n)
+})
+// 向左转
+$("#btn_L").click(function(){
+  n-=45;
+  $(".box").css('transform','rotateY('+n+'deg')
+})
+$("#btn_T").click(function(){
+  n+=45;
+  $(".box").css('transform','rotateX('+n+'deg')
+})
+$("#btn_B").click(function(){
+  n-=45;
+  $(".box").css('transform','rotateX('+n+'deg')
+})
+
+$("#btn_L360").click(function(){
+  n-=360;
+  $(".box").css('transform','rotateY('+n+'deg')
+})
+$("#btn_R360").click(function(){
+  n+=360;
+  $(".box").css('transform','rotateY('+n+'deg')
+})
+
+
+// 启动总开关
+$(".menu_btn").on('click',function(event){
+  event.stopPropagation();
+   LR_move(afterMove);
+   upSelf(screenRotate)
+   $(".k_ul li").css("display","block");
+
+})
+
+function LR_move(callBack){
+   
+   var b_w =  $(".plane_bottom").width();
+
+  $(".plane_left").css({
+    transition:"3s",
+    transformOrigin:"0% 0% 50%",
+    transform:"rotateY(90deg) translate3d(0%,0%,"+(-b_w)/2+"px)"
+  })
+
+   $(".plane_right").css({
+    transition:"3s",
+    transformOrigin:"0% 0% 50%",
+    transform:"rotateY(-90deg) translate3d(0%,0%,"+(-b_w)/2+"px)"
+  })
+
+     setTimeout(function() {
+       $(".plane_after").css('display',"block")
+           callBack && callBack();
+         },3000);
+}
+function afterMove(){
+
+    var b_H =  $(".plane_bottom").height();
+   $(".plane_after").css({
+    transition:"3s",
+     transform: 'translateZ('+(-b_H)/2+'px)'
+    })
+       $(".plane_top").css('display',"block")
+
+  }
+
+
+function upSelf(callBack){
+  oAudio.src= "audio/auto_page2.wav";
+   oAudio.play();
+
+     $('.menu_btn').css({
+    transition:"3s",
+    transform: 'translateX(-50%) translateZ(50px)'
+  })
+     $(".menu_btn dt").css('display','block');
+     setTimeout(function(){     
+        callBack&&callBack();
+     },3000)
+     
+}
+function screenRotate(){
+  oAudio.src= "audio/qbfq.wav";
+   oAudio.play();
+  $(".menu_btn dt").css({
+    transition:"3s",
+    transform:'translate(-100px,-50%) rotateX(-45deg)' 
+  })
+  var oImg = $("#closeLock>img")[0];
+   oImg.src = "images/on.png";
+}
+
+// 关闭总开关
+$("#closeLock").bind({
+  mouseover:function(event){
+     event.stopPropagation();
+     $("#closeLock>img")[0].src = "images/off.png";
+  },
+  mousemove:function(event){
+     event.stopPropagation();
+     $("#closeLock>img")[0].src = "images/on.png";
+  },
+  click:function(event){
+     event.stopPropagation();
+    oAudio.src= "audio/off.wav";
+   oAudio.play();
+  backRo(downMenu);
+}
+})
+function backRo(callBack){
+   $(".menu_btn dt").css({
+    transition:"3s",
+    transform:'translate(-100px,-50%) rotateX(-0deg)' 
+  })
+     
+     setTimeout(function(){  
+     $(".menu_btn dt").css('display','none');  
+        callBack&&callBack();
+     },3000)
+     
+}
+function downMenu(){
+     // $(".menu_btn dt").css('display','none');
+   oAudio.src= "audio/qbfq.wav";
+   oAudio.play();
+   $('.menu_btn').css({
+    transition:"3s",
+    transform: 'translateX(-50%) translateZ(0px)'
+  })
+ 
+
+}
+
+
+
+
+(function(){
+var Birds = function()
+{
+    var me = this;
+
+    var config = {
+        number : 100
+    };
+
+    var width;
+    var height;
+
+    var canvas;
+    var engine;
+
+    var birds;
+    var frame = 0;
+
+    var speed         = 0.4;
+    var birdLineCount = 10;
+    var birdLineIndex = -1;
+
+    var bgTop;
+    var bgBot;
+
+    var z = {
+        current : 1,
+        target  : 1
+    };
+
+    var mouse = {
+        x : 0.5,
+        y : 0.5,
+        z : 0.5
+    };
+
+    var prepare = function()
+    {
+        canvas = document.getElementsByTagName('canvas')[0];
+        engine = canvas.getContext('2d');
+
+        width  = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.setAttribute('width', width);
+        canvas.setAttribute('height', height);
+
+        bgTop = engine.createLinearGradient(0, 0, 0, height / 2);
+        bgTop.addColorStop(0, '#000');
+        bgTop.addColorStop(1, '#110');
+
+        bgBot = engine.createLinearGradient(0, height / 2, 0, height);
+        bgBot.addColorStop(0, '#000');
+        bgBot.addColorStop(1, '#001');
+    };
+
+    var request = function()
+    {
+        window.requestAnimationFrame(tick);
+    };
+
+    var solveBirdMove = function(bird)
+    {
+        ['x', 'y', 'z'].forEach(function(key) {
+            if (Math.abs(bird.move[key]) > 0.003) {
+                bird.move[key] *= 0.99;
+            }
+        });
+
+        if (frame % bird.ownMove.t === 0) {
+            bird.ownMove.x = (0.5 - Math.random()) / 3;
+            bird.ownMove.y = (0.5 - Math.random()) / 3;
+        }
+
+        bird.move.x += speed * (mouse.x - bird.pos.x + bird.ownMove.x) * bird.speed;
+        bird.move.y += speed * (mouse.y - bird.pos.y + bird.ownMove.y) * bird.speed;
+        bird.move.z += speed * (mouse.z - bird.pos.z) * bird.speed;
+    };
+
+    var applyPath = function(pathStack)
+    {
+        engine.moveTo(pathStack[0].x, pathStack[0].y);
+
+        for (var i = 1; i < pathStack.length; i ++) {
+            engine.lineTo(pathStack[i].x, pathStack[i].y);
+        }
+    };
+
+    var drawBird = function(bird)
+    {
+        engine.fillStyle = 'hsl(' + (frame % 360) +  ', 100%, 90%)';
+
+        var pos = {
+            x : bird.pos.x * width,
+            y : bird.pos.y * height,
+            z : bird.pos.z * 1.5
+        };
+
+        var size = (width + height) / 200 * pos.z * z.current;
+        var atan = Math.atan2(bird.move.y, bird.move.x);
+
+        engine.lineWidth   = 1;
+
+        var p = function(rad, customSize)
+        {
+            return {
+                x : pos.x + Math.cos(atan + rad * Math.PI * 2) * size * customSize,
+                y : pos.y + Math.sin(atan + rad * Math.PI * 2) * size * customSize
+            };
+        };
+
+        //addLinePath
+        addLinePath(bird, p(0.5, 1.3));
+
+        engine.beginPath();
+
+        //body
+        applyPath([
+            //spitze
+            p(0, 1.2),
+            p(0.01, 0.9),
+            p(0.05, 0.7),
+
+
+            //schweif
+            p(0.47, 0.9),
+            p(0.45, 1.5),
+            p(0.47, 1.2),
+            p(0.5, 1.5),
+            p(0.52, 1.2),
+            p(0.55, 1.5),
+            p(0.53, 0.9),
+
+            //spitze
+            p(-0.25, 0.5),
+            p(-0.05, 0.7),
+            p(-0.01, 0.9),
+            p(0, 1.2)
+        ]);
+
+        engine.fill();
+
+        var wingWave = Math.sin(bird.wing);
+        var wingAdd  = wingWave * 0.1;
+        var wingPositiveWave = (wingWave + 1) / 2;
+
+        engine.beginPath();
+
+        //body
+        applyPath([
+            p(0, 0.5),
+
+            //rauf
+            p(-0.15, wingPositiveWave),
+            p(-0.25, -1 + 3 * wingPositiveWave),
+
+            //runter
+            p(-0.4, 0.5),
+            p(0, 0)
+        ]);
+
+        engine.fill();
+
+    };
+
+    var addLinePath = function(bird, pos)
+    {
+        bird.lines[birdLineIndex * 2]     = pos.x;
+        bird.lines[birdLineIndex * 2 + 1] = pos.y;
+    };
+
+    var drawBirdLines = function()
+    {
+        for (var i = birdLineCount; i >= 2; i--) {
+
+            engine.beginPath();
+            engine.lineWidth   = i / birdLineCount * (width + height) / 1000;
+            engine.strokeStyle = 'hsla(' + ((frame + i) % 360) +  ', 100%, 50%, ' + i / birdLineCount + ')';
+            // engine.strokeStyle = 'hsla(230, 0%, 30%, ' + i / birdLineCount / 2 + ')';
+
+            var currentIndex = (birdLineIndex + i) % birdLineCount;
+            var lastIndex    = (birdLineIndex + i + birdLineCount - 1) % birdLineCount;
+
+            birds.forEach(function(bird) {
+
+                if (bird.lines[lastIndex * 2] !== 0 && bird.lines[currentIndex * 2] !== 0) {
+
+                    engine.moveTo(
+                        bird.lines[currentIndex * 2],
+                        bird.lines[currentIndex * 2 + 1]
+                    );
+
+                    engine.lineTo(
+                        bird.lines[lastIndex * 2],
+                        bird.lines[lastIndex * 2 + 1]
+                    )
+
+                }
+
+            });
+
+            engine.stroke();
+
+        }
+    };
+
+    var drawShine = function()
+    {
+        // engine.globalCompositeOperation = 'lighter';
+        // engine.fillStyle = 'hsla(' + (frame % 360) +  ', 100%, 90%, 0.005)';
+        //
+        // birds.forEach(function(bird) {
+        //
+        //     engine.beginPath();
+        //
+        //     engine.moveTo(bird.pos.x * width, bird.pos.y * height);
+        //     engine.arc(
+        //         bird.pos.x * width,
+        //         bird.pos.y * height,
+        //         bird.pos.z * (width + height) / 3,
+        //         0,
+        //         Math.PI * 2
+        //     );
+        //
+        //     engine.fill();
+        //     engine.closePath();
+        // });
+
+        engine.fillStyle = 'hsla(' + (frame % 360) +  ', 100%, 90%, 0.01)';
+
+        engine.beginPath();
+        birds.forEach(function(bird) {
+
+            engine.moveTo(bird.pos.x * width, bird.pos.y * height);
+            engine.arc(
+                bird.pos.x * width,
+                bird.pos.y * height,
+                bird.pos.z * (width + height) / 30,
+                0,
+                Math.PI * 2
+            );
+        });
+
+        engine.fill();
+        engine.closePath();
+
+        engine.globalCompositeOperation = 'source-over';
+    };
+
+    var renderBirds = function()
+    {
+        birds.forEach(function(bird) {
+            solveBirdMove(bird);
+
+            bird.wing += 0.05 + bird.wingAdd * 0.3 * speed;
+
+            bird.pos.x += bird.move.x;
+            bird.pos.y += bird.move.y;
+            bird.pos.z += bird.move.z;
+        });
+
+        drawBirdLines();
+
+        birdLineIndex = (birdLineIndex + 1) % birdLineCount;
+
+        birds.forEach(function(bird) {
+            drawBird(bird);
+        });
+
+        drawShine();
+    };
+
+    var clear = function()
+    {
+        engine.clearRect(0, 0, width, height);
+    };
+
+    var drawBg = function()
+    {
+        engine.fillStyle = bgTop;
+        engine.fillRect(0, 0, width, height / 2);
+
+        engine.fillStyle = bgBot;
+        engine.fillRect(0, height / 2, width, height);
+    };
+
+    var tick = function()
+    {
+        frame++;
+
+        z.current += (z.target - z.current) / 100;
+
+        clear();
+        // drawBg();
+        renderBirds();
+
+        request();
+    };
+
+    var createBirds = function()
+    {
+        birds = [];
+
+        for (var i = 0; i < config.number; i++) {
+
+            birds.push({
+                wing : Math.random(),
+                wingAdd : Math.random(),
+                speed : (0.2 + Math.random() * 0.8) / 2000,
+                pos : {
+                    x : 0.25 + Math.random() * 0.5,
+                    y : 0.25 + Math.random() * 0.5,
+                    z : Math.random()
+                },
+                move : {
+                    x : 0,
+                    y : 0,
+                    z : 0
+                },
+                ownMove : {
+                    t : 20 + Math.random() * 100 | 0,
+                    x : 0,
+                    y : 0
+                },
+                tar : {
+                    x : 0.5,
+                    y : 0.5
+                },
+                lines : new Float32Array(birdLineCount * 2)
+            });
+        }
+    };
+
+    var registerMouse = function()
+    {
+        // document.addEventListener('mousemove', function(e) {
+        //     mouse.x = e.clientX / width;
+        //     mouse.y = e.clientY / height;
+        // });
+
+        setInterval(function() {
+            mouse.x = Math.random();
+            mouse.y = Math.random();
+
+            z.target = 0.5 + Math.random();
+
+        }, 1000);
+    };
+
+    this.run = function()
+    {
+        registerMouse();
+        prepare();
+        createBirds();
+
+        tick();
+    }
+};
+
+var b = new Birds();
+b.run();
+
+})()
+
+
+
+
+
+</script>
+ <script type='text/javascript' src='js/clockMain.js'></script>  
